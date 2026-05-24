@@ -1,0 +1,71 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "fre800slmp"
+version = "0.1.0"
+description = "SLMP client for Mitsubishi FR-E800 series inverters (QnA-compatible 3E binary frame, TCP/UDP)"
+readme = "README.md"
+license = { file = "LICENSE" }
+authors = [{ name = "mokouliszt" }]
+requires-python = ">=3.10"
+keywords = [
+    "slmp",
+    "mitsubishi",
+    "inverter",
+    "vfd",
+    "fr-e800",
+    "freqrol",
+    "melsec",
+    "industrial-automation",
+    "fieldbus",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Manufacturing",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Communications",
+    "Topic :: System :: Hardware",
+    "Topic :: System :: Networking",
+    "Typing :: Typed",
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=7", "ruff", "mypy"]
+
+[project.urls]
+Homepage = "https://github.com/mokouliszt/fre800slmp"
+Repository = "https://github.com/mokouliszt/fre800slmp"
+Issues = "https://github.com/mokouliszt/fre800slmp/issues"
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "src/fre800slmp",
+    "tests",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/fre800slmp"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.mypy]
+python_version = "3.10"
+strict_optional = true
